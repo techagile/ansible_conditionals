@@ -1,0 +1,14 @@
+---
+# show example of loop conditions
+
+- name: show loop
+  debug:
+    msg: "{{ list_of_os }}"
+
+- name: show only RedHat
+  debug:
+    msg: "{{ item }}"
+  when: item == "RedHat"
+  loop:
+    "{{ list_of_os }}"
+

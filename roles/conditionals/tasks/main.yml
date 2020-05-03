@@ -1,0 +1,17 @@
+---
+
+- import_tasks: show_ansible_facts.yml
+  tags: [facts_os]
+  when: 
+    ansible_facts['os_family'] == 'Redhat'
+
+- import_tasks: show_ansible_facts.yml
+  tags: [facts_distribution]
+  when:
+    ansible_facts['os_family'] == 'RedHat'
+ 
+- import_tasks: conditional_loops.yml
+  tags: [os_families] 
+
+- import_tasks: search_text.yml
+  tags: [search_text]

@@ -1,0 +1,7 @@
+---
+
+- hosts: homelab
+  gather_facts: yes
+
+  roles:
+    - conditionals

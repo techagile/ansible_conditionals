@@ -1,0 +1,20 @@
+---
+# shows example of custom facts
+
+- hosts: homelab
+  gather_facts: no
+
+  vars:
+    apply_config: false
+
+  tasks:
+    - name: say hello
+      command: echo "hello" 
+      when: 
+        apply_config != true
+      register: hello
+
+    - name: show hello out
+      debug:
+        msg: "{{ hello.stdout }}"
+

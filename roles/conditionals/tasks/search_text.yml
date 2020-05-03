@@ -1,0 +1,13 @@
+---
+# show example to search text in a string
+
+- name: get the listing of a file
+  command: ls -l
+  register: fileList
+
+- name: search 'hosts' in the fileList
+  debug:
+    msg: host file is present
+  when: 
+    - fileList.stdout.find('hosts') == -1
+
